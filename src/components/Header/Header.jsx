@@ -10,10 +10,18 @@ const Header = ({ children, getMe }) => {
         </a>
       </div>
       <ul className="flex gap-3">
-        <NavLink to="/users">Users</NavLink>
-        <NavLink to="/posts">Posts</NavLink>
-        <NavLink to="/todos">Todos</NavLink>
-        <NavLink to="/carts">Carts</NavLink>
+        <NavLink className="p-[5px] rounded" to="dashboard/users">
+          Users
+        </NavLink>
+        <NavLink className="p-[5px] rounded" to="dashboard/posts">
+          Posts
+        </NavLink>
+        <NavLink className="p-[5px] rounded" to="dashboard/todos">
+          Todos
+        </NavLink>
+        <NavLink className="p-[5px] rounded" to="dashboard/products">
+          Products
+        </NavLink>
       </ul>
       {children}
       {getMe && (

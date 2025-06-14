@@ -6,6 +6,10 @@ import Login from "./components/Login/Login.jsx";
 import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import Layout from "./components/HomeLayout/Layout.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
+import Users from "./components/Users/Users.jsx";
+import Posts from "./components/Posts/Posts.jsx";
+import Todos from "./components/Todos/Todos.jsx";
+import Products from "./components/Products/Products.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -15,7 +19,13 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Layout />}></Route>
+
+          <Route path="/" element={<Layout />}>
+            <Route index path="dashboard/users" element={<Users />}></Route>
+            <Route path="dashboard/posts" element={<Posts />}></Route>
+            <Route path="dashboard/todos" element={<Todos />}></Route>
+            <Route path="dashboard/products" element={<Products />}></Route>
+          </Route>
         </Routes>
       </Suspense>
     </AuthProvider>

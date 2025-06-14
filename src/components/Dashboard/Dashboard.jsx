@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
-import AuthContext from "../AuthContext";
+// import AuthContext from "../AuthContext";
 import { api } from "../../api";
 
 const Dashboard = () => {
