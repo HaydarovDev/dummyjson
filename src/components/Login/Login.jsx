@@ -8,29 +8,30 @@ const Login = () => {
   const username = useRef(null);
   const password = useRef(null);
   //   const { setData } = useContext(AuthContext);
-  //   const [a, setA] = useState(null);
 
   const navigate = useNavigate();
 
   const handleSignin = async () => {
-    const res = await api.post("auth/login", {
-      username: username.current.value,
-      password: password.current.value,
-    });
+    try {
+      const res = await api.post("auth/login", {
+        username: username.current.value,
+        password: password.current.value,
+      });
 
-    console.log(res);
+      console.log(res);
 
-    const { accessToken } = res.data;
+      const { accessToken } = res.data;
 
-    localStorage.setItem("data", JSON.stringify(res.data));
-    // setA(res.data);
-
-    if (accessToken) {
-      localStorage.setItem("token", accessToken);
-      //   setData(res);
-      navigate("/dashboard");
+      if (accessToken) {
+        localStorage.setItem("token", accessToken);
+        localStorage.setItem("login", "true");
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      alert("User not fount", error.message);
     }
   };
+
   return (
     <>
       {/* <Dashboard data={a} /> */}

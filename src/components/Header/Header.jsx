@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ children, getMe }) => {
   return (
     <header className="flex justify-between items-center px-3 py-2 shadow-sm">
       <div>
@@ -15,8 +15,12 @@ const Header = () => {
         <NavLink to="/todos">Todos</NavLink>
         <NavLink to="/carts">Carts</NavLink>
       </ul>
-
-      <div></div>
+      {children}
+      {getMe && (
+        <div className="bg-green-500 w-[30px] h-[30px] flex items-center justify-center rounded-[50%] text-white cursor-pointer">
+          {getMe?.firstName?.slice(0, 1)}
+        </div>
+      )}
     </header>
   );
 };
